@@ -47,4 +47,4 @@ def test_required_executables(rsync_not_found, capsys, plugins):
     ('mysql')
 ])
 def test_load_plugins(input):
-    assert input in load_plugins().keys()
+    assert input in list(load_plugins().keys())

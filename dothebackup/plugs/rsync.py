@@ -57,11 +57,11 @@ def main(config):
         command.append('-e ssh')
 
     # check for exclude and include and add it to the rsync command list
-    if 'exclude' in config.keys():
+    if 'exclude' in list(config.keys()):
         for item in config['exclude']:
             command.append('--exclude={}'.format(item))
 
-    if 'include' in config.keys():
+    if 'include' in list(config.keys()):
         for item in config['include']:
             command.append('--include={}'.format(item))
 

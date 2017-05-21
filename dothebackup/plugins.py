@@ -45,8 +45,8 @@ def required_keys(key_list):
         @wraps(func)
         def func_wrapper(config):
             for key in key_list:
-                if key not in config.keys():
-                    print('ERROR: "{}" not in config.'.format(key))
+                if key not in list(config.keys()):
+                    print(('ERROR: "{}" not in config.'.format(key)))
                     sys.exit(1)
 
             return func(config)
@@ -70,7 +70,7 @@ def required_executables(dep_list):
         def func_wrapper(config):
             for dep in dep_list:
                 if not spawn.find_executable(dep):
-                    print('ERROR: Please install {}.'.format(dep))
+                    print(('ERROR: Please install {}.'.format(dep)))
                     sys.exit(1)
 
             return func(config)
